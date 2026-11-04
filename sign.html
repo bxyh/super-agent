@@ -1,0 +1,10 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign ownership message</title><style>body{font-family:sans-serif;background:#0b0b0f;color:#eee;padding:16px;max-width:640px;margin:auto}textarea{width:100%;height:110px;background:#1a1a1a;color:#eee;border:1px solid #333;border-radius:8px;padding:8px}button{display:block;width:100%;padding:14px;margin:10px 0;border:0;border-radius:10px;background:#f0b90b;color:#000;font-size:16px;font-weight:bold}#o{padding:10px;border-radius:8px;background:#1a1a1a;word-break:break-all}</style></head><body>
+<h2>Sign ownership message</h2><p>Open in Bitget Wallet dApp browser with wallet 0xe4Ed...023a.</p>
+<textarea id="m">[BscScan.com 04/11/2026 05:35:21] I, hereby verify that I am the owner/creator of the address [0xA575B7169a9A1c8B22f64bd32199e0aC9e4481fC]</textarea>
+<button id="c">1. Connect wallet</button><button id="s">2. Sign message</button><div id="o">Ready</div><button id="cp">Copy signature</button>
+<script>
+var a=null,g="",o=document.getElementById("o");function w(){return window.ethereum||(window.bitkeep&&window.bitkeep.ethereum)}
+document.getElementById("c").onclick=async function(){try{a=(await w().request({method:"eth_requestAccounts"}))[0];o.textContent="Connected: "+a}catch(x){o.textContent="Error: "+x.message}};
+document.getElementById("s").onclick=async function(){try{var m=document.getElementById("m").value,h="0x"+Array.from(new TextEncoder().encode(m)).map(function(b){return b.toString(16).padStart(2,"0")}).join("");g=await w().request({method:"personal_sign",params:[h,a]});o.textContent="Signature: "+g}catch(x){o.textContent="Error: "+x.message}};
+document.getElementById("cp").onclick=function(){navigator.clipboard.writeText(g);o.textContent="Copied: "+g};
+</script></body></html>
