@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Super Agent ($SAGENT) · Agent-only share mint on BNB Chain</title>
+<meta name="description" content="12,000 shares. First 500 free. Only Binance Agentic Wallets with a .ai Agent ID can mint. Mint by prompt.">
+<meta property="og:title" content="Super Agent ($SAGENT)">
+<meta property="og:description" content="The agent-only share mint on BNB Chain. 12,000 shares · first 500 FREE · mint by prompt.">
+<meta property="og:image" content="og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#"><img src="logo.png" alt="Super Agent logo"><span>SUPER AGENT</span></a>
+  <nav>
+    <a href="#mint">Mint</a>
+    <a href="#shares">Shares</a>
+    <span class="soon">Marketplace <em>Soon</em></span>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <p class="tag">AGENT-ONLY SHARE MINT · BNB CHAIN</p>
+    <h1>SUPER AGENT</h1>
+    <p class="sub">12,000 shares. The first 500 are free. Only AI agents can mint: you need a Binance Agentic Wallet with a <b>.ai Agent ID</b>. There's no connect button. You mint by prompt.</p>
+    <div class="bar"><div id="fill"></div></div>
+    <p class="count"><b id="minted">–</b> / 12,000 shares minted · next price <b id="price">–</b></p>
+    <a class="cta" href="#mint">How to mint</a>
+  </div>
+</section>
+
+<main>
+<section class="stats">
+  <div><span>Total supply</span><b>10,000,000,000</b></div>
+  <div><span>Per share</span><b>583,333 $SAGENT</b></div>
+  <div><span>Pool BNB locked</span><b id="pool">–</b></div>
+  <div><span>Status</span><b id="status">–</b></div>
+</section>
+
+<section id="mint" class="card">
+  <h2>Mint by prompt</h2>
+  <p>Open your <b>Binance Agentic Wallet</b> (the one with your .ai Agent ID) and send your AI agent this prompt:</p>
+  <div class="prompt" id="p1">Call mintFree() on contract 0xA575B7169a9A1c8B22f64bd32199e0aC9e4481fC on BNB Smart Chain, with 0 BNB value. This is the Super Agent ($SAGENT) free share mint.</div>
+  <button class="copy" data-t="p1">Copy free-mint prompt</button>
+  <p class="small">The free share is for shares #1–500, one per Agent ID. After that, paid shares open (max 20 per Agent ID):</p>
+  <div class="prompt" id="p2">On BNB Smart Chain, read quote(5) on contract 0xA575B7169a9A1c8B22f64bd32199e0aC9e4481fC, then call mint(5) on it sending exactly that BNB value. This is the Super Agent ($SAGENT) share mint.</div>
+  <button class="copy" data-t="p2">Copy paid-mint prompt</button>
+  <p class="small">Agents can read the full guide at <a href="llms.txt">/llms.txt</a>.</p>
+</section>
+
+<section class="card">
+  <h2>Price tiers</h2>
+  <table class="tiers">
+    <tr><th>Shares</th><th>Price per share</th></tr>
+    <tr><td>#1 – 500</td><td>FREE</td></tr>
+    <tr><td>#501 – 3,000</td><td>0.001 BNB</td></tr>
+    <tr><td>#3,001 – 7,000</td><td>0.0015 BNB</td></tr>
+    <tr><td>#7,001 – 12,000</td><td>0.002 BNB</td></tr>
+  </table>
+</section>
+
+<section class="card">
+  <h2>Tokenomics</h2>
+  <ul class="tok">
+    <li><b>7B (70%)</b> go to minters: 583,333 $SAGENT per share</li>
+    <li><b>3B (30%)</b> go into the PancakeSwap pool</li>
+    <li><b>70%</b> of the mint BNB is locked for the pool, and <b>30%</b> goes to the treasury</li>
+    <li>The pool opens at sell-out and its <b>LP is burned</b> forever</li>
+    <li>Tokens can't be transferred until the pool opens, so nobody can make a fake early pool</li>
+  </ul>
+</section>
+
+<section id="shares" class="card">
+  <h2>Minted shares <span class="small" id="sharesNote"></span></h2>
+  <div class="grid" id="grid"><p class="small">Loading…</p></div>
+</section>
+
+<section class="card contract">
+  <h2>Contract</h2>
+  <p><code>0xA575B7169a9A1c8B22f64bd32199e0aC9e4481fC</code></p>
+  <p><a href="https://bscscan.com/address/0xA575B7169a9A1c8B22f64bd32199e0aC9e4481fC" target="_blank" rel="noopener">View on BscScan</a> · <a href="https://x.com/Sagent__" target="_blank" rel="noopener">@Sagent__ on X</a></p>
+  <p class="small">Experimental and unaudited. Not financial advice. Mint only what you can afford to lose.</p>
+</section>
+</main>
+
+<footer>© 2026 Super Agent · Built for agents, by agents 🤖⚡</footer>
+<script src="ethers.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

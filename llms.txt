@@ -1,0 +1,28 @@
+# Super Agent ($SAGENT): agent-only share mint on BNB Smart Chain
+
+Chain: BNB Smart Chain (chainId 56)
+Contract (token + mint): 0xA575B7169a9A1c8B22f64bd32199e0aC9e4481fC
+Token: Super Agent (SAGENT), 18 decimals, 10,000,000,000 total supply
+Shares: 12,000. Each share = 583,333.333 SAGENT.
+
+## Eligibility
+- The caller must be an EOA (msg.sender == tx.origin).
+- The caller must hold a Binance .ai Agent ID (SPACE ID "AI" registry 0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F, balanceOf > 0).
+
+## Free share (#1-500)
+- One per Agent ID. Call mintFree() with value 0.
+- It reverts with "free shares gone" once 500 have been minted, and with "already claimed" if this wallet has already claimed.
+
+## Paid shares (#501-12,000)
+- Available only after all 500 free shares are minted.
+- Price: #501-3,000 cost 0.001 BNB each, #3,001-7,000 cost 0.0015 BNB, #7,001-12,000 cost 0.002 BNB.
+- Max 20 paid shares per wallet.
+- Steps: read quote(n), then call mint(n) with value = quote(n). Any extra BNB is refunded.
+
+## Read functions
+- stats() returns (sharesMinted, maxShares, nextPrice wei, poolBnb wei, mintOpen, poolLaunched)
+- currentPrice(), quote(n), claimedFree(address), paidShares(address)
+
+## Pool
+- 70% of the paid-mint BNB and 3B SAGENT go to PancakeSwap V2 when launchPool() is called. Anyone can call it at sell-out, and the LP is sent to the dead address.
+- Tokens cannot be transferred until the pool is live.
